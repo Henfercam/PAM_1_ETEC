@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Teste</title>
+</head>
+
+<body>
+
+<form>
+<input type="number" id="num1" name="num1">
+<input type="number" id="num2" name="num2">
+<input type="number" id="num3" name="num3">
+<input type="number" id="num4" name="num4">
+
+<select name="ope" id="ope" multiple size="13">
+  <option value="Dobro">Dobro</option>
+  <option value="Triplo">Triplo</option>
+  <option value="Quádruplo">Quádruplo</option>
+  <option value="Quíntuplo">Quíntuplo</option>
+  <option value="Sêxtuplo">Sêxtuplo</option>
+  <option value="Quadrado">Quadrado</option>
+  <option value="Cubo">Cubo</option>
+  <option value="Quarta Potência">Quarta Potência</option>
+  <option value="Quinta Potência">Quinta Potência</option>
+  <option value="Sexta Potência">Sexta Potência</option>
+  <option value="Bhaskara">Bhaskara</option>
+  <option value="Média aritmética">Média aritmética</option>
+  <option value="par ou ímpar">par ou ímpar</option>
+
+</select>
+
+<button type="button" onclick="enviar()">enviar</button>
+<button type="button" onclick="teste()">teste</button>
+</form>
+
+<script>
+
+var numero1 = "";
+var numero2 = "";
+var numero3 = "";
+var numero4 = "";
+var operacao = "";
+
+function enviar() {
+    numero1 = document.getElementById("num1").value;
+    numero2 = document.getElementById("num2").value;
+    numero3 = document.getElementById("num3").value;
+    numero4 = document.getElementById("num4").value;
+
+    operacao = document.getElementById("ope").value;
+
+    console.log(numero1);
+    console.log(numero2);
+    console.log(numero3);
+    console.log(numero4);
+
+    console.log(operacao);
+}
+
+function teste() {
+    if (operacao == "Dobro") {
+    alert(numero1 * 2);
+    }
+    else if (operacao == "Triplo") {
+    alert(numero1 * 3);
+    }
+    else if (operacao == "Quádruplo") {
+    alert(numero1 * 4);
+    }
+    else if (operacao == "Quíntuplo") { 
+    alert(numero1 * 5);
+    }
+    else if (operacao == "Sêxtuplo") { 
+    alert(numero1 * 6);
+    }
+    else if (operacao == "Quadrado") { 
+    alert(numero1 ** 2);
+    }
+    else if (operacao == "Cubo") {
+    alert(numero1 ** 3);
+    }
+    else if (operacao == "Quarta Potência") {
+    alert(numero1 ** 4);
+    }
+    else if (operacao == "Quinta Potência") {
+    alert(numero1 ** 5);
+    }
+    else if (operacao == "Sexta Potência") {
+    alert(numero1 ** 6);
+    }
+    else if (operacao == "Bhaskara") {
+        let x1 = (-numero2 + Math.sqrt(numero2 ** 2 - 4 * numero1 * numero3)) / (2 * numero1);
+        let x2 = (-numero2 - Math.sqrt(numero2 ** 2 - 4 * numero1 * numero3)) / (2 * numero1);
+        alert("x1: " + x1 + ", x2: " + x2);
+    }
+    else if (operacao == "Média aritmética") {
+        alert((parseFloat(numero1) + parseFloat(numero2) + parseFloat(numero3) + parseFloat(numero4)) / 4);
+    }
+    else if (operacao == "par ou ímpar") {
+        if (numero1 % 2 == 0) {
+            alert(numero1 + " é par");
+        }
+        else {
+            alert(numero1 + " é ímpar");
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>

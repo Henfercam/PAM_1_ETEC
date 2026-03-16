@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Controle de Vendas</title>
+
+<script>
+
+function calcular(){
+
+var total = 0;
+
+if(document.getElementById("p1").checked){
+var q = parseInt(document.getElementById("q1").value);
+total = total + (19.90 * q);
+}
+
+if(document.getElementById("p2").checked){
+var q = parseInt(document.getElementById("q2").value);
+total = total + (59.90 * q);
+}
+
+if(document.getElementById("p3").checked){
+var q = parseInt(document.getElementById("q3").value);
+total = total + (119.90 * q);
+}
+
+if(document.getElementById("p4").checked){
+var q = parseInt(document.getElementById("q4").value);
+total = total + (39.90 * q);
+}
+
+if(document.getElementById("p5").checked){
+var q = parseInt(document.getElementById("q5").value);
+total = total + (99.90 * q);
+}
+
+if(document.getElementById("p6").checked){
+var q = parseInt(document.getElementById("q6").value);
+total = total + (38.90 * q);
+}
+
+if(document.getElementById("p7").checked){
+var q = parseInt(document.getElementById("q7").value);
+total = total + (9.90 * q);
+}
+
+if(document.getElementById("p8").checked){
+var q = parseInt(document.getElementById("q8").value);
+total = total + (24.90 * q);
+}
+
+if(document.getElementById("p9").checked){
+var q = parseInt(document.getElementById("q9").value);
+total = total + (329.90 * q);
+}
+
+if(document.getElementById("p10").checked){
+var q = parseInt(document.getElementById("q10").value);
+total = total + (69.90 * q);
+}
+
+if(document.getElementById("p11").checked){
+var q = parseInt(document.getElementById("q11").value);
+total = total + (14.90 * q);
+}
+
+if(document.getElementById("p12").checked){
+var q = parseInt(document.getElementById("q12").value);
+total = total + (6.90 * q);
+}
+
+var forma = document.querySelector('input[name="pagamento"]:checked').value;
+
+var resultado = "";
+
+if(forma == "vista"){
+
+var desconto = total * 0.085;
+var final = total - desconto;
+
+resultado = "Total: R$ " + total.toFixed(2) +
+"<br>Desconto: R$ " + desconto.toFixed(2) +
+"<br>Total a pagar: R$ " + final.toFixed(2);
+
+}
+
+if(forma == "prazo"){
+
+var parcelas = parseInt(document.getElementById("parcelas").value);
+
+var taxa = total * 0.06;
+var totalPrazo = total + taxa + (6.90 * parcelas);
+
+var valorParcela = totalPrazo / parcelas;
+
+if(valorParcela < 10){
+alert("Parcela não pode ser menor que R$10");
+return;
+}
+
+resultado = "Total com taxas: R$ " + totalPrazo.toFixed(2) +
+"<br>Parcelas: " + parcelas +
+"<br>Valor da parcela: R$ " + valorParcela.toFixed(2);
+
+}
+
+document.getElementById("resultado").innerHTML = resultado;
+
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Controle de Vendas</h2>
+
+<table border="1">
+
+<tr>
+<th>Produto</th>
+<th>Preço</th>
+<th>Quantidade</th>
+</tr>
+
+<tr><td><input type="checkbox" id="p1"> Camiseta Regata</td><td>19.90</td><td><input type="number" id="q1" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p2"> Camisa Social</td><td>59.90</td><td><input type="number" id="q2" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p3"> Blusa</td><td>119.90</td><td><input type="number" id="q3" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p4"> Pullover</td><td>39.90</td><td><input type="number" id="q4" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p5"> Sapato</td><td>99.90</td><td><input type="number" id="q5" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p6"> Calça</td><td>38.90</td><td><input type="number" id="q6" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p7"> Meias</td><td>9.90</td><td><input type="number" id="q7" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p8"> Luvas</td><td>24.90</td><td><input type="number" id="q8" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p9"> Jaqueta</td><td>329.90</td><td><input type="number" id="q9" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p10"> Bermuda</td><td>69.90</td><td><input type="number" id="q10" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p11"> Chinelo</td><td>14.90</td><td><input type="number" id="q11" value="0"></td></tr>
+<tr><td><input type="checkbox" id="p12"> Boné</td><td>6.90</td><td><input type="number" id="q12" value="0"></td></tr>
+
+</table>
+
+<br>
+
+<h3>Forma de pagamento</h3>
+
+<input type="radio" name="pagamento" value="vista" checked> À Vista
+<input type="radio" name="pagamento" value="prazo"> À Prazo
+
+<br><br>
+
+Parcelas:
+
+<select id="parcelas">
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<h3 id="resultado"></h3>
+
+</body>
+</html>

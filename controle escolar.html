@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Controle Escolar</title>
+
+<script>
+
+
+var alunos = [];
+
+
+function cadastrar(){
+
+    var nome = document.getElementById("nome").value;
+    var idade = parseInt(document.getElementById("idade").value);
+    var nota = parseFloat(document.getElementById("nota").value);
+
+    var msg = "";
+
+    if(nome == "" || isNaN(idade) || isNaN(nota)){
+        msg = "Preencha todos os campos corretamente!";
+        document.getElementById("mensagem").innerHTML = msg;
+        return;
+    }
+
+    if(idade <= 0){
+        msg = "Idade inválida!";
+        document.getElementById("mensagem").innerHTML = msg;
+        return;
+    }
+
+    if(nota < 0 || nota > 10){
+        msg = "Nota deve estar entre 0 e 10!";
+        document.getElementById("mensagem").innerHTML = msg;
+        return;
+    }
+
+    var aluno = {
+        nome: nome,
+        idade: idade,
+        nota: nota
+    };
+
+    alunos.push(aluno);
+
+    document.getElementById("nome").value = "";
+    document.getElementById("idade").value = "";
+    document.getElementById("nota").value = "";
+
+    document.getElementById("mensagem").innerHTML = "Aluno cadastrado!";
+
+    renderizar();
+}
+
+function remover(index){
+    alunos.splice(index, 1);
+    renderizar();
+}
+
+function detalhes(index){
+    var a = alunos[index];
+    alert("Nome: " + a.nome +
+          "\nIdade: " + a.idade +
+          "\nNota: " + a.nota);
+}
+
+function renderizar(){
+
+    var tabela = "";
+
+    var total = alunos.length;
+    var soma = 0;
+    var aprovados = 0;
+    var reprovados = 0;
+
+    for(var i = 0; i < alunos.length; i++){
+
+        var status = "";
+
+        if(alunos[i].nota >= 6){
+            status = "Aprovado";
+            aprovados++;
+        } else {
+            status = "Reprovado";
+            reprovados++;
+        }
+
+        soma += alunos[i].nota;
+
+        tabela += "<tr>";
+        tabela += "<td>" + alunos[i].nome + "</td>";
+        tabela += "<td>" + status + "</td>";
+        tabela += "<td><button onclick='detalhes(" + i + ")'>Detalhes</button></td>";
+        tabela += "<td><button onclick='remover(" + i + ")'>Remover</button></td>";
+        tabela += "</tr>";
+    }
+
+    document.getElementById("lista").innerHTML = tabela;
+
+    var media = 0;
+    if(total > 0){
+        media = soma / total;
+    }
+
+    document.getElementById("estatisticas").innerHTML =
+        "Total: " + total +
+        "<br>Média: " + media.toFixed(2) +
+        "<br>Aprovados: " + aprovados +
+        "<br>Reprovados: " + reprovados;
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Controle Escolar</h2>
+
+<h3>Cadastro de Alunos</h3>
+
+Nome: <input type="text" id="nome"><br><br>
+Idade: <input type="number" id="idade"><br><br>
+Nota: <input type="number" min="0" max="10" id="nota" step="0.1"><br><br>
+
+<button onclick="cadastrar()">Cadastrar</button>
+
+<h4 id="mensagem"></h4>
+
+<hr>
+
+<h3>Lista de Alunos</h3>
+
+<table border="1">
+<tr>
+<th>Nome</th>
+<th>Idade</th>
+<th>Nota</th>
+<th>Status</th>
+<th>Detalhes</th>
+<th>Remover</th>
+</tr>
+
+<tbody id="lista"></tbody>
+
+</table>
+
+<hr>
+
+<h3>Estatísticas</h3>
+
+<h4 id="estatisticas"></h4>
+
+</body>
+</html>

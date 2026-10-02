@@ -1,56 +1,57 @@
-# Welcome to your Expo app 👋
+# MovieHub
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Sobre o projeto
 
-## Get started
+O MovieHub é uma aplicação mobile desenvolvida para gerenciamento e organização de filmes. O projeto possui diferentes telas para acesso, cadastro, visualização de filmes, favoritos e perfil do usuário.
 
-1. Install dependencies
+## Funcionalidades
 
-   ```bash
-   npm install
-   ```
+- Tela de abertura (Splash)
+- Login
+- Cadastro de usuário
+- Tela inicial (Home)
+- Listagem de filmes
+- Detalhes do filme
+- Filmes favoritos
+- Perfil do usuário
 
-2. Start the app
+## Tecnologias utilizadas
 
-   ```bash
-   npx expo start
-   ```
+- React Native
+- Expo
+- TypeScript
+- Expo Router
+- Git
+- GitHub
 
-In the output, you'll find options to open the app in a
+## Estrutura do projeto
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+O projeto é organizado em pastas para facilitar a separação das partes do aplicativo.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- `assets/` - imagens e outros arquivos visuais.
+- `components/` - componentes reutilizáveis.
+- `constants/` - informações e valores constantes.
+- `hooks/` - hooks utilizados no projeto.
+- `src/app/` - arquivos das rotas do aplicativo.
+- `src/screens/` - telas principais do aplicativo.
+- `README.md` - documentação do projeto.
 
-## Get a fresh project
+## Como executar
 
-When you're ready, run:
+Primeiro, instale as dependências do projeto:
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+```bash
+npx expo start
+```
 
-### Other setup steps
+Após isso, o projeto pode ser aberto pelo Expo Go ou em um emulador compatível.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Autor
 
-## Learn more
+Henrique Fernandes Campos
+2º DS - Mtec PI
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
